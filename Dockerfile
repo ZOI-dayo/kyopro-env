@@ -27,6 +27,10 @@ RUN cd /tmp \
   && mkdir -p /kyopro/include \
   && mv atcoder /kyopro/include/
 
+# online-judge-tools
+RUN apt install -y python3 python3-pip
+RUN pip3 install --break-system-packages online-judge-tools
+
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
 COPY dotfiles /root
