@@ -29,8 +29,6 @@ RUN cd /tmp \
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-RUN chsh -s /bin/bash
-
 COPY dotfiles /root
 COPY src /kyopro
 VOLUME /kyopro

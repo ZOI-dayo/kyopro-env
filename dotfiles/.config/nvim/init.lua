@@ -10,6 +10,9 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 0
 
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+vim.opt.shell = '/bin/bash'
+
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
