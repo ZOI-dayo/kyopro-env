@@ -19,9 +19,17 @@ RUN apt install -y clang-16
 RUN apt install -y lldb
 RUN apt install -y clangd
 
+# ac-library
+RUN apt install -y unzip
+RUN cd /tmp \
+  && curl -LO https://github.com/atcoder/ac-library/releases/download/v1.5.1/ac-library.zip \
+  && unzip ac-library.zip \
+  && mkdir -p /kyopro/include \
+  && mv atcoder /kyopro/include/
+
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-RUN chsh -s /usr/bin/zsh
+RUN chsh -s /bin/bash
 
 COPY dotfiles /root
 COPY src /kyopro
