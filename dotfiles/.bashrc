@@ -10,13 +10,17 @@ function new () {
     if [[ $1 == *"/"* ]]; then
       contestName=$(echo $1 | cut -d'/' -f1)
       problemName=$(echo $1 | cut -d'/' -f2)
+      mkdir $contestName/$problemName
+      cd $contestName/$problemName
       oj d https://atcoder.jp/contests/${contestName}/tasks/${contestName}\_${problemName}
     else
-      oj d $1
+      python3 contest.py $1
     fi
   elif [[ $# -eq 2 ]]; then
     contestName=$1
     problemName=$2
+    mkdir $contestName/$problemName
+    cd $contestName/$problemName
     oj d https://atcoder.jp/contests/${contestName}/tasks/${contestName}\_${problemName}
   else
     echo "Usage: new {problemUrl} or new {contestName}/{problemName} or new {contestName} {problemName}"

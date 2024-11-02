@@ -36,5 +36,5 @@ RUN apt clean && rm -rf /var/lib/apt/lists/*
 COPY dotfiles /root
 COPY src /kyopro
 VOLUME /kyopro
-WORKDIR /kyopro
+WORKDIR /kyopro/tmp
 
