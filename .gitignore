@@ -1,1 +1,2 @@
-secrets/oj-tools/cookie.jar
+secrets/*/*
+!secrets/*/.gitkeep

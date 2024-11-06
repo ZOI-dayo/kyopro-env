@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM debian:sid-slim
 
 RUN apt update
 
@@ -24,14 +24,25 @@ RUN apt install -y unzip
 RUN cd /tmp \
   && curl -LO https://github.com/atcoder/ac-library/releases/download/v1.5.1/ac-library.zip \
   && unzip ac-library.zip \
-  && mkdir -p /kyopro/include \
-  && mv atcoder /kyopro/include/
+  && mkdir -p /kyopro/include/ac-library \
+  && mv atcoder /kyopro/include/ac-library/
 
 # online-judge-tools
 RUN apt install -y python3 python3-pip
 RUN pip3 install --break-system-packages online-judge-tools
 
+RUN apt install -y g++
+
 RUN apt clean && rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/ZOI-dayo/atcoder-library.git /kyopro/include/atcoder-library
+RUN git clone https://github.com/ZOI-dayo/cpp-bundler.git /tmp/cpp-bundler \
+  && cd /tmp/cpp-bundler \
+  && make build \
+  && cp build/cpp-bundler /usr/local/bin/ \
+  && rm -rf /tmp/cpp-bundler
+
+RUN pip3 install --break-system-packages setuptools
 
 COPY dotfiles /root
 COPY src /kyopro

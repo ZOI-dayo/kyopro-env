@@ -31,7 +31,11 @@ if [ -n $CURRENT_ID ]; then
       docker stop $CONTAINER_NAME
     fi
     docker rm $CONTAINER_NAME
-    docker run -id --name $CONTAINER_NAME -v $(dirname `pwd`)/secrets/oj-tools:/root/.local/share/online-judge-tools $CONTAINER_NAME /bin/bash
+    docker run -id --name $CONTAINER_NAME \
+      -v $(dirname `pwd`)/secrets/oj-tools:/root/.local/share/online-judge-tools \
+      -v $(dirname `pwd`)/secrets/copilot:/root/.config/github-copilot \
+      -v $(dirname `pwd`)/secrets/ssh:/root/.ssh \
+      $CONTAINER_NAME /bin/bash
   fi
 else
   echo "$CONTAINER_NAME container does not exist; create..."

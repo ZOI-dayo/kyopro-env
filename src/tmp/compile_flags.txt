@@ -5,4 +5,5 @@
 -O0
 -fconstexpr-depth=2147483647
 -fconstexpr-steps=2147483647
--fuse-ld=lld
+-I/kyopro/include/ac-library
+-I/kyopro/include/atcoder-library
