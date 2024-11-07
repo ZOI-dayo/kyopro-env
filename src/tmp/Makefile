@@ -2,7 +2,7 @@ build: a.out
 a.out: main.cpp
 	clang++-16 `cat ./compile_flags.txt | sed -z 's/\n/ /g'` main.cpp
 main.bundle.cpp: main.cpp
-	cpp-bundler main.cpp > main.bundle.cpp
+	cpp-bundler main.cpp -I /kyopro/include/atcoder-library > main.bundle.cpp
 test: a.out
 	oj t
 test-about: a.out

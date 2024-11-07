@@ -35,7 +35,7 @@ RUN apt install -y g++
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/ZOI-dayo/atcoder-library.git /kyopro/include/atcoder-library
+RUN git clone -b v2 https://github.com/ZOI-dayo/atcoder-library.git /kyopro/include/atcoder-library
 RUN git clone https://github.com/ZOI-dayo/cpp-bundler.git /tmp/cpp-bundler \
   && cd /tmp/cpp-bundler \
   && make build \
