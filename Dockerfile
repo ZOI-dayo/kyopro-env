@@ -27,6 +27,9 @@ RUN cd /tmp \
   && mkdir -p /kyopro/include/ac-library \
   && mv atcoder /kyopro/include/ac-library/
 
+# boost
+RUN apt install -y libboost-all-dev
+
 # online-judge-tools
 RUN apt install -y python3 python3-pip
 RUN pip3 install --break-system-packages online-judge-tools
