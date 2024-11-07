@@ -42,5 +42,6 @@ else
   docker run -id --name $CONTAINER_NAME $CONTAINER_NAME /bin/bash
 fi
 echo "$CONTAINER_NAME container is ready"
+docker exec -it $CONTAINER_NAME /bin/bash -c "cd /kyopro/include/atcoder-library && git remote set-url origin git@github.com:ZOI-dayo/atcoder-library.git"
 docker exec -it $CONTAINER_NAME /bin/bash
 
