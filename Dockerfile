@@ -25,10 +25,18 @@ RUN cd /tmp \
   && curl -LO https://github.com/atcoder/ac-library/releases/download/v1.5.1/ac-library.zip \
   && unzip ac-library.zip \
   && mkdir -p /kyopro/include/ac-library \
-  && mv atcoder /kyopro/include/ac-library/
+  && mv atcoder /kyopro/include/ac-library/ \
+  && rm ac-library.zip
+ENV CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/kyopro/include/ac-library
 
 # boost
 RUN apt install -y libboost-all-dev
+
+RUN git clone -b v2 https://github.com/ZOI-dayo/atcoder-library.git /kyopro/include/atcoder-library
+ENV CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/kyopro/include/atcoder-library
+
+RUN git clone https://github.com/philip82148/cpp-dump.git /kyopro/include/cpp-dump
+ENV CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/kyopro/include/cpp-dump
 
 # online-judge-tools
 RUN apt install -y python3 python3-pip
@@ -38,7 +46,6 @@ RUN apt install -y g++
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-RUN git clone -b v2 https://github.com/ZOI-dayo/atcoder-library.git /kyopro/include/atcoder-library
 RUN git clone https://github.com/ZOI-dayo/cpp-bundler.git /tmp/cpp-bundler \
   && cd /tmp/cpp-bundler \
   && make build \
