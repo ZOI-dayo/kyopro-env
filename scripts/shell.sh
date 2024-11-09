@@ -36,6 +36,9 @@ if [ -n $CURRENT_ID ]; then
       -v $(dirname `pwd`)/secrets/copilot:/root/.config/github-copilot \
       -v $(dirname `pwd`)/secrets/ssh:/root/.ssh \
       $CONTAINER_NAME /bin/bash
+
+    docker exec $CONTAINER_NAME /bin/bash -c "git config --global user.email '$(cat $(dirname `pwd`)/secrets/git/email)'"
+    docker exec $CONTAINER_NAME /bin/bash -c "git config --global user.name '$(cat $(dirname `pwd`)/secrets/git/name)'"
   fi
 else
   echo "$CONTAINER_NAME container does not exist; create..."
