@@ -21,7 +21,7 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
-vim.keynap.set('v', 'x', '"_x')
+vim.keymap.set('v', 'x', '"_x')
 vim.keymap.set('n', 'x', '"_x')
 vim.keymap.set('n', '<S-Left>', '<C-w><<CR>')
 vim.keymap.set('n', '<S-Right>', '<C-w>>CR>')
