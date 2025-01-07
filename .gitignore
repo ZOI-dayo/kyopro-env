@@ -1,2 +1,8 @@
 secrets/*/*
 !secrets/*/.gitkeep
+dotfiles/.cache/
+dotfiles/.local/
+src
+!src/tmp
+dotfiles/.lldb/lldb-widehistory
+dotfiles/.wget-hsts

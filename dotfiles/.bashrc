@@ -1,5 +1,3 @@
-alias clang++="clang++-16"
-
 function new () {
   if [[ $# != 1 && $# != 2 ]]; then
     echo "Usage: new {contestName} or new {contestName}/{problemName} or new {contestName} {problemName}"
@@ -32,3 +30,5 @@ function new () {
     return 1
   fi
 }
+
+source /etc/bash_completion
