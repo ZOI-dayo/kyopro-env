@@ -6,6 +6,8 @@
 -I/opt/boost/clang/include
 -L/opt/boost/clang/lib
 -I/usr/include/eigen3
+-I/opt/ac-library
+-I/opt/boost
 -fconstexpr-depth=2147483647
 -fconstexpr-steps=2147483647
 -fsanitize=address,undefined

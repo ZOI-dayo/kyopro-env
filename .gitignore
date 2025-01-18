@@ -1,8 +1,8 @@
 secrets/*/*
 !secrets/*/.gitkeep
-dotfiles/.cache/
-dotfiles/.local/
+dotfiles/*
+!dotfiles/.bashrc
+!dotfiles/.config
+dotfiles/.config/nvim/lazy-lock.json
 src/*
 !src/tmp
-dotfiles/.lldb/lldb-widehistory
-dotfiles/.wget-hsts

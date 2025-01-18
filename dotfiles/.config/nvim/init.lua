@@ -16,6 +16,7 @@ vim.opt.tabstop = 2
 vim.opt.title = true
 vim.opt.virtualedit = 'onemore'
 vim.opt.whichwrap = 'b,s,<,>,[,],h,l,~'
+vim.opt.swapfile = false
 
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')

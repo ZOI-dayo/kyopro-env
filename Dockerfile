@@ -55,6 +55,9 @@ RUN pip3 install online-judge-tools
 
 RUN apt install -y bash-completion
 
+# print
+RUN apt install -y paps ghostscript
+
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
 RUN echo $CPLUS_INCLUDE_PATH
