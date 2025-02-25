@@ -30,6 +30,8 @@ vim.keymap.set('n', '<S-Up>', '<C-w>+<CR>')
 vim.keymap.set('n', '<S-Down>', '<C-w>-<CR>')
 vim.opt.shell = '/bin/bash'
 
+vim.keymap.set('n', '<C-t>', ':split<CR><C-w>j:term<CR>')
+
 vim.api.nvim_create_autocmd('BufEnter', {
   group = vim.api.nvim_create_augroup('AutoCommentOff', { clear = true }),
   command = 'setlocal formatoptions-=cro',
